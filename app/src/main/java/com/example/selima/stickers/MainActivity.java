@@ -1,26 +1,32 @@
 package com.example.selima.stickers;
 
-import android.graphics.Color;
-import android.support.v7.app.ActionBar;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Window;
+import 	android.provider.ContactsContract.Data;
 
-import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.EstimoteSDK;
 import com.estimote.sdk.Nearable;
-import com.estimote.sdk.Region;
 import com.estimote.sdk.SystemRequirementsChecker;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private BeaconManager beaconManager;
     private String scanId;
+
+    File sd;
+    File f = new File(Environment.DIRECTORY_DOCUMENTS, "log_stickers.txt");;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +42,43 @@ public class MainActivity extends AppCompatActivity {
         beaconManager.setNearableListener(new BeaconManager.NearableListener() {
             @Override public void onNearablesDiscovered(List<Nearable> nearables) {
                 Log.d("TAG", "Discovered nearables: " + nearables);
+
+                File file;
+                FileOutputStream outputStream;
+                try {
+                    file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
+                            "Log_stickers.txt");
+
+                    outputStream = new FileOutputStream(file);
+
+                    outputStream.write(nearables.toString().getBytes());
+                    outputStream.write("\n".getBytes());
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
 
     }
+
+    public void write (String dati){
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try{
+            fw = new FileWriter(f, true);
+            bw = new BufferedWriter(fw);
+            bw.write(dati);
+            bw.close();
+            fw.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            //Toast.makeText(context, "Settings not saved",Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     @Override
     protected void onStart(){
