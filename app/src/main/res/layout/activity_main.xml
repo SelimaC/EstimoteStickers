@@ -21,14 +21,16 @@
             android:layout_height="wrap_content"
             android:text="Enter the server URL : "
             android:textSize="20dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="5dp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:text=""
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"/>
+            android:layout_marginBottom="15dp"
+            android:id="@+id/serverName"/>
 
         <Space
             android:layout_width="match_parent"
@@ -47,57 +49,73 @@
             android:layout_height="wrap_content"
             android:text="Nearable ID"
             android:textSize="18dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:id="@+id/idC"/>
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Is it in motion"
             android:textSize="18dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:id="@+id/motionC"/>
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Is it still"
+            android:text="Last motion state duration"
             android:textSize="18dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:id="@+id/lastC"/>
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Acceleration"
+            android:text="Current motion state duration"
             android:textSize="18dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:id="@+id/currentC"/>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Acceleration (x,y,z)"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/accelerationC"/>
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Temperature"
             android:textSize="18dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:id="@+id/temperatureC"/>
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Broadcasting power"
+            android:text="Battery level"
             android:textSize="18dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:id="@+id/batteryC"/>
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Battery voltage"
+            android:text="Color"
             android:textSize="18dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:id="@+id/colorC"/>
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Firmware version"
+            android:text="Type"
             android:textSize="18dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:id="@+id/typeC"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SAVE"
             android:textSize="20dp"
-            android:layout_marginTop="40dp"
-            android:clickable="true"/>
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:id="@+id/saveButton"/>
     </LinearLayout>
 
 </RelativeLayout>
