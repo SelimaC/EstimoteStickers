@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,10 +50,11 @@ public class MainActivity extends AppCompatActivity {
                     file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
                             "Log_stickers.txt");
 
-                    outputStream = new FileOutputStream(file);
-
-                    outputStream.write(nearables.toString().getBytes());
-                    outputStream.write("\n".getBytes());
+                    outputStream = new FileOutputStream(file,true);
+                    OutputStreamWriter write = new OutputStreamWriter(outputStream);
+                    write.append(nearables.toString());
+                    write.append("\n\n\n");
+                    write.close();
                     outputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
