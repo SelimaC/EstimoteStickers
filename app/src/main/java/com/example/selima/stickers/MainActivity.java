@@ -52,8 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
                     outputStream = new FileOutputStream(file,true);
                     OutputStreamWriter write = new OutputStreamWriter(outputStream);
+
                     write.append(nearables.toString());
                     write.append("\n\n\n");
+
                     write.close();
                     outputStream.close();
                 } catch (IOException e) {
@@ -64,23 +66,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-    public void write (String dati){
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        try{
-            fw = new FileWriter(f, true);
-            bw = new BufferedWriter(fw);
-            bw.write(dati);
-            bw.close();
-            fw.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            //Toast.makeText(context, "Settings not saved",Toast.LENGTH_SHORT).show();
-        }
-    }
-
 
     @Override
     protected void onStart(){
