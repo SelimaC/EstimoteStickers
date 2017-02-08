@@ -1,6 +1,8 @@
 package com.example.selima.stickers;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by selim on 07/02/2017.
@@ -32,15 +34,18 @@ public class Fields {
 
     @Override
     public String toString(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy      hh:mm:ss");
+        String res = simpleDateFormat.format(new Date());
 
-        return "ID: " + id + "\nMotion: " + motion + "\nLastMotionStateDuration: " + lastMotionStateDuration + "s" +
+        return res+ "\nID: " + id + "\nMotion: " + motion + "\nLastMotionStateDuration: " + lastMotionStateDuration + "s" +
                 "\nCurrentMotionStateDuration: " + currentMotionStateDuration+ "s" + "\nAcceleration (x,y,z): " + acceleration +
                 "\nTemperature: " + temperature + "\nBatteryLevel: " + batterylevel + "\nColor: " + color +
                 "\nType: " + type;
     }
 
     public String onlyChecked(ArrayList<Boolean> check){
-        String res = "";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy      hh:mm:ss");
+        String res = simpleDateFormat.format(new Date());
 
         if(check.get(0)) res += "\nID: " + id;
         if(check.get(1)) res += "\nMotion: " + motion;
